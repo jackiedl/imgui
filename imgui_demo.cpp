@@ -8220,7 +8220,7 @@ void ImGui::ShowAboutWindow(bool* p_open)
 // Demo helper function to select among default colors. See ShowStyleEditor() for more advanced options.
 // Here we use the simplified Combo() api that packs items into a single literal string.
 // Useful for quick combo boxes where the choices are known locally.
-bool ImGui::ShowStyleSelector(const char* label)
+bool ImGui::ShowStyleSelector(ImStrv label)
 {
     static int style_idx = -1;
     if (ImGui::Combo(label, &style_idx, "Dark\0Light\0Classic\0"))
@@ -10822,7 +10822,7 @@ void ImGui::ShowAboutWindow(bool*) {}
 void ImGui::ShowDemoWindow(bool*) {}
 void ImGui::ShowUserGuide() {}
 void ImGui::ShowStyleEditor(ImGuiStyle*) {}
-bool ImGui::ShowStyleSelector(const char*) { return false; }
+bool ImGui::ShowStyleSelector(ImStrv) { return false; }
 
 #endif // #ifndef IMGUI_DISABLE_DEMO_WINDOWS
 
