@@ -16043,7 +16043,7 @@ void ImGui::ShowFontAtlas(ImFontAtlas* atlas)
                     ImFontAtlasRect r = {};
                     atlas->GetCustomRect(id, &r);
                     ImStrv buf;
-                    ImFormatStringToTempBuffer(&buf, NULL, "ID:%08X, used:%d, { w:%3d, h:%3d } { x:%4d, y:%4d }", id, entry.IsUsed, r.w, r.h, r.x, r.y);
+                    ImFormatStringToTempBuffer(&buf, "ID:%08X, used:%d, { w:%3d, h:%3d } { x:%4d, y:%4d }", id, entry.IsUsed, r.w, r.h, r.x, r.y);
                     TableNextColumn();
                     Selectable(buf.Begin);
                     if (IsItemHovered())
@@ -17713,7 +17713,7 @@ void ImGui::ShowIDStackToolWindow(bool* p_open)
         {
             if (level_desc[n] == '/')
                 tool->ResultPathBuf.append("\\");
-            tool->ResultPathBuf.append(level_desc + n, level_desc + n + 1);
+            tool->ResultPathBuf.append(ImStrv(level_desc + n, level_desc + n + 1));
         }
     }
     Text("0x%08X", tool->QueryId);
